@@ -2,20 +2,51 @@ import java.util.Scanner;
 
 public class GugudanMain {
         public static void main(String[] args) {
-            System.out.println("입력하고자 하는 수를 입력하세요 (, 로 나눠 입력하기 필수) : ");
-            Scanner scan = new Scanner(System.in);
-            String input = scan.nextLine();
-            String[] splitedValue = input.split(",");
+            System.out.println("수를 입력하세요. : ");
+            Scanner sc = new Scanner(System.in);
+            int first = sc.nextInt();
 
-            int first = Integer.parseInt(splitedValue[0]); // 8
-            int second = Integer.parseInt(splitedValue[1]); // 7
+            int result = first;
+            while(true) {
+                System.out.println("기호를 입력하세요 : ");
+                Scanner sc2 = new Scanner(System.in);
+                String symbol = sc2.nextLine();
 
-            for(int i = 2; i <= first; i++){
-                for(int j = 1; j <= second; j++){
-                    System.out.print(i * j+ " ");
+                if(symbol.equals("quit")){
+                    System.out.println("최종결과 : " + result);
+                    break;
                 }
-                System.out.println();
+
+                System.out.println("다음 수를 입력하세요 : ");
+                Scanner sc3 = new Scanner(System.in);
+                int second = sc3.nextInt();
+
+                if(symbol.equals("+")){
+                    result = result + second;
+                    System.out.println("덧셈 : " + result);
+                }
+                else if(symbol.equals("-")){
+                    result = result - second;
+                    System.out.println("뺄셈 : " + result);
+                }
+                else if(symbol.equals("*")){
+                    result = result * second;
+                    System.out.println("곱셈 : " + result);
+                }
+                else if(symbol.equals("/")){
+                    result = result / second;
+                    System.out.println("나눗셈 : " + result);
+                }
+                else{
+                    System.out.println("사칙기호 연산이 아닙니다.");
+                }
+
+                /*if(symbol.equals("quit")){ // 이 식이 여기에 위치하면 실행되지 않음
+                    System.out.println("최종결과 : " + result);
+                    break;
+                }*/
             }
+
         }
     }
 
